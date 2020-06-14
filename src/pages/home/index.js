@@ -34,6 +34,8 @@ class Home extends React.Component {
   }
   // 负责显示组件的标签 视图
   render() {
+    console.log(this.props)
+    const {location,history} =this.props
     return (
       <div style={ { position: 'fixed', height: '100%', width: '100%', top: 0 }}>
         <TabBar
@@ -46,26 +48,24 @@ class Home extends React.Component {
             key="home"
             icon={<i className="iconfont icon-ind"></i> }
             selectedIcon={<i className="iconfont icon-ind"></i> }
-            selected={this.state.selectedTab === 'blueTab'}
-            onPress={() => { this.setState({ selectedTab: 'blueTab', }); }}
+            selected={location.pathname === './home/index'}
+            onPress={() => { history.push('/home/index')}}
             data-seed="logId"
           >
-            <Route component={Index} path="/home/index"></Route>123
+            <Route component={Index} path="/home/index"></Route>
           </TabBar.Item>
           <TabBar.Item
             icon={ <i className="iconfont icon-findHouse"></i>  }
             selectedIcon={ <i className="iconfont icon-findHouse"></i>  }
             title="找房"
             key="found"
-            selected={this.state.selectedTab === 'redTab'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'redTab',
-              });
-            }}
+            
+            selected={location.pathname === '/home/found'}
+            onPress={() => history.push('/home/found')}
+
             data-seed="logId1"
           >
-            <Route component={Found } path="/home/found"></Route>
+            <Route component={Found} path="/home/found"></Route>
           </TabBar.Item>
           <TabBar.Item
             icon={ <i className="iconfont icon-infom"></i> }
@@ -73,14 +73,10 @@ class Home extends React.Component {
             title="资讯"
             key="news"
      
-            selected={this.state.selectedTab === 'greenTab'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'greenTab',
-              });
-            }}
+            selected={location.pathname === '/home/news'}
+            onPress={() =>  history.push('/home/news')}
           >
-              <Route component={News } path="/home/news"></Route>
+              <Route component={News} path="/home/news"></Route>
 
           </TabBar.Item>
           <TabBar.Item
@@ -88,12 +84,10 @@ class Home extends React.Component {
             selectedIcon={<i className="iconfont icon-my"></i> }
             title="我的"
             key="mind"
-            selected={this.state.selectedTab === 'yellowTab'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'yellowTab',
-              });
-            }}
+            // selected={location.pathname === './home/mind'}
+            // onPress={() => history.push('/home/mind')}
+            selected={location.pathname === '/home/mind'}
+            onPress={() => history.push('/home/mind')}
           >
             <Route component={Mind} path="/home/mind"></Route>
           </TabBar.Item>
