@@ -19,12 +19,13 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     // 初始化state 而已 
-    this.state = {
-      selectedTab: 'redTab',
-    };
+    if(this.props.location.pathname === "/home"){
+      this.props.history.push("/home/index");
+    }
   }
 
   renderContent(pageText) {
+    
     return (
       <div >
         <i className="iconfont icon-edit"></i>
@@ -32,6 +33,7 @@ class Home extends React.Component {
       </div>
     );
   }
+  
   // 负责显示组件的标签 视图
   render() {
     console.log(this.props)
