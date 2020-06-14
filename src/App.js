@@ -1,27 +1,25 @@
 import React from 'react';
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Redirect} from "react-router-dom";
 
-
+//  home 其实是一个 tabbar 
 import Home from "./pages/home";
-import Found from "./pages/found";
-import News from "./pages/news";
-import Mind from "./pages/mind";
+// 地图找房
+import MapFound from "./pages/mapFound";
+// 城市选择
+import CitySelect from "./pages/citySelect";
 function App() {
   return (
     <div className="App">
       <Router>
-        <nav>
-          <Link to="/" >首页</Link>
-          <Link to="/found" >找房</Link>
-          <Link to="/news" >资讯</Link>
-          <Link to="/mind" >我的</Link>
-        </nav> 
-        <section>
-          <Route  component={Home}  path="/"  exact ></Route>
-          <Route  component={Found}  path="/found"  exact ></Route>
-          <Route  component={News}  path="/news"  exact ></Route>
-          <Route  component={Mind}  path="/mind"  exact ></Route>
-        </section>
+       
+          {/* home 表示tabbar结构 => 4个小页面  */}
+          <Route  component={Home}  path="/home"  exact ></Route>
+          <Route path="/" exact >
+          <Redirect to="/home" ></Redirect>
+        </Route>
+          <Route  component={MapFound}  path="/mapFound"  exact ></Route>
+          <Route  component={CitySelect}  path="/citySelect"  exact ></Route>
+          
       </Router>
     </div>
   );
