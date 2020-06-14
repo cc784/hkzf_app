@@ -13,7 +13,7 @@ function App() {
       <Router>
        
           {/* home 表示tabbar结构 => 4个小页面  */}
-          <Route  component={Home}  path="/home"  exact ></Route>
+          <Route  component={Home}  path="/home"   ></Route>
           <Route path="/" exact >
           <Redirect to="/home" ></Redirect>
         </Route>
