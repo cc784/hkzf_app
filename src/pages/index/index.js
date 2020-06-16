@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 // 轮播图 引入
 import { Carousel, WingBlank } from 'antd-mobile';
 //axios 引入
-import axios from "axios";
+import axios,{baseURL} from "../../utils/request"
 // import Carousel from '../../demo/Carousel'
  class index extends Component { 
      state={
@@ -12,7 +12,7 @@ import axios from "axios";
          imgHeight: 176,
      }
      async componentDidMount(){
-        const res = await axios.get('http://157.122.54.189:9060/home/swiper')
+        const res = await axios.get('/home/swiper')
         console.log(res)
         this.setState({carouselList:res.data.body})
      }
@@ -33,7 +33,7 @@ import axios from "axios";
               style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
             >
               <img
-                src={"http://157.122.54.189:9060" + val.imgSrc}
+                src={baseURL + val.imgSrc}
                 alt=""
                 style={{ width: '100%', verticalAlign: 'top' }}
                 onLoad={() => {
