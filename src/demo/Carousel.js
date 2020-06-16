@@ -3,7 +3,7 @@ import React from "react";
 
 class App extends React.Component {
   state = {
-    data: ['1', '2', '3','4'],
+    data: [],
     imgHeight: 176,
   }
   componentDidMount() {
@@ -17,7 +17,7 @@ class App extends React.Component {
   render() {
     return (
       <WingBlank>
-        <Carousel
+       {this.state.data.length && <Carousel
           autoplay={false}
           infinite
           beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
@@ -27,7 +27,7 @@ class App extends React.Component {
             <a
               key={val}
               href="http://www.alipay.com"
-              style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+            
             >
               <img
                 src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
@@ -41,7 +41,7 @@ class App extends React.Component {
               />
             </a>
           ))}
-        </Carousel>
+        </Carousel>}
       </WingBlank>
     );
   }
