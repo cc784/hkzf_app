@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component,  } from 'react';
 // 轮播图 引入
-import { Carousel, WingBlank } from 'antd-mobile';
+import { Carousel,  } from 'antd-mobile';
 //axios 引入
 import axios,{baseURL} from "../../utils/request"
-// import Carousel from '../../demo/Carousel'
+
  class index extends Component { 
      state={
          //轮播图数组
@@ -12,6 +12,7 @@ import axios,{baseURL} from "../../utils/request"
          imgHeight: 176,
      }
      async componentDidMount(){
+        //  轮播图数据请求
         const res = await axios.get('/home/swiper')
         console.log(res)
         this.setState({carouselList:res.data.body})
