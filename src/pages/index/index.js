@@ -1,14 +1,53 @@
 import React, { Component, Fragment } from 'react';
-// 轮播图
-import Carousel from '../../demo/Carousel'
+// 轮播图 引入
+import { Carousel, WingBlank } from 'antd-mobile';
+//axios 引入
+import axios from "axios";
+// import Carousel from '../../demo/Carousel'
  class index extends Component { 
+     state={
+         //轮播图数组
+         carouselList: [],
+         //轮播图a标签高度
+         imgHeight: 176,
+     }
+     async componentDidMount(){
+        const res = await axios.get('http://157.122.54.189:9060/home/swiper')
+        console.log(res)
+        this.setState({carouselList:res.data.body})
+     }
  render() { 
  return ( 
- <Fragment>
-     <Carousel/>
-     
-     
-     </Fragment> 
+    <div>
+        {/* 轮播图开始 */}
+        <div className='index_carousel'>
+        {this.state.carouselList.length &&<Carousel
+          autoplay
+          infinite
+    
+        >
+          {this.state.carouselList.map(val => (
+            <a
+              key={val}
+              href="http://www.alipay.com"
+              style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+            >
+              <img
+                src={"http://157.122.54.189:9060" + val.imgSrc}
+                alt=""
+                style={{ width: '100%', verticalAlign: 'top' }}
+                onLoad={() => {
+                  // fire window resize event to change height
+                  window.dispatchEvent(new Event('resize'));
+                  this.setState({ imgHeight: 'auto' });
+                }}
+              />
+            </a>
+          ))}
+        </Carousel>}
+        </div>
+        {/* 轮播图结束 */}
+    </div>
  );  
 } 
  } 
