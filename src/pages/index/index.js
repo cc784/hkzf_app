@@ -3,13 +3,24 @@ import React, { Component,  } from 'react';
 import { Carousel,  } from 'antd-mobile';
 //axios 引入
 import axios,{baseURL} from "../../utils/request"
-
+//导入本地图片 
+import nav1 from '../../assets/images/nav-1.png';
+import nav2 from '../../assets/images/nav-2.png';
+import nav3 from '../../assets/images/nav-3.png';
+import nav4 from '../../assets/images/nav-4.png';
  class index extends Component { 
      state={
          //轮播图数组
          carouselList: [],
          //轮播图a标签高度
          imgHeight: 176,
+         // 导航数组
+         navs:[
+             {id:0,text:'整租',imgSrc:nav1},
+             {id:1,text:'合租',imgSrc:nav2},
+             {id:2,text:'地图找房',imgSrc:nav3},
+             {id:3,text:'去出租',imgSrc:nav4},
+         ]
      }
      async componentDidMount(){
         //  轮播图数据请求
