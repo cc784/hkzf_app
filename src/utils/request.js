@@ -17,7 +17,7 @@ axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
-    setTimeout("Toast.hide()",2000)
+    setTimeout(function(){ Toast.hide(); },3000)
      //隐藏 toast 需要手动调用 hide
     return response;
   }, function (error) {
