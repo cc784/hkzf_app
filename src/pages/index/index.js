@@ -16,6 +16,8 @@ import indexCss from "./index.module.scss";
          carouselList: [],
         //  租房小组数据
         groups:[],
+        // 最新资讯
+        news:[],
          //轮播图a标签高度
          imgHeight: 176,
          // 导航数组
@@ -29,6 +31,7 @@ import indexCss from "./index.module.scss";
      async componentDidMount(){
       this.getCarousel();
       this.getGroups();
+      this.getNews();
      }
     //  获取轮播图数据
     getCarousel =async () =>{
@@ -40,6 +43,12 @@ import indexCss from "./index.module.scss";
       const res =await axios.get('/home/groups')
       // console.log(res)
       this.setState({groups:res.data.body});
+    }
+    // 获取最新資訊
+    getNews =async () =>{
+      const res =await axios.get('/home/news')
+      // console.log(res)
+      this.setState({news:res.data.body});
     }
  render() { 
  return ( 
@@ -99,6 +108,25 @@ import indexCss from "./index.module.scss";
           </div>
         </div>
         {/* 3 租房小组 结束*/}
+        {/* 4 最新资讯 开始 */}
+        <div className={indexCss.index_news}>
+          <div className={indexCss.index_news_title}>最新资讯</div>
+          <div className={indexCss.index_news_content}>
+            {this.state.news.map((v,i)=><div className={indexCss.news_item} key={i}>
+            <div className={indexCss.news_item_img}>
+              <img src={baseURL+ v.imgSrc} alt=''></img>
+            </div>
+            <div className={indexCss.news_item_info}>
+              <div className={indexCss.news_item_title}>{v.title}</div>
+              <div className={indexCss.news_item_desc}>
+                <span>{v.from}</span>
+                <span>{v.date}</span>
+              </div>
+            </div>
+            </div>)}
+          </div>
+        </div>
+        {/* 4 最新资讯 结束 */}
     </div>
  );  
 } 

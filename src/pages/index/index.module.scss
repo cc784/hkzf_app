@@ -26,51 +26,93 @@
   }
   // 租房小组
   .index_groups {
-      padding: 10px;
+    padding: 10px;
     .index_groups_title {
-        padding: 10px 0;
-        display: flex;
-        justify-content: space-between;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
       span {
-          font-size: 16px;
-          color: #000000;
-          font-weight: 600;
+        font-size: 16px;
+        color: #000000;
+        font-weight: 600;
       }
-
-      
     }
 
     .index_groups_content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     .groups_item {
-        width: 48%;
-        background-color: #fff;
-        margin-bottom: 10px;
-        padding: 15px 10px;
-        display: flex;
-        align-items: center;
+      width: 48%;
+      background-color: #fff;
+      margin-bottom: 10px;
+      padding: 15px 10px;
+      display: flex;
+      align-items: center;
       .groups_item_info {
-          flex: 3;
+        flex: 3;
         .groups_item_title {
-            color: #000000;
-            font-size: 15px;
-            font-weight: 600;
+          color: #000000;
+          font-size: 15px;
+          font-weight: 600;
         }
 
         .groups_item_desc {
-            margin-top: 4px;
-            font-size: 13px;
+          margin-top: 4px;
+          font-size: 13px;
         }
       }
 
       .groups_item_img {
-          flex: 2;
+        flex: 2;
         img {
-            width: 70%;
+          width: 70%;
+        }
+      }
+    }
+  }
+  //最新资讯
+  .index_news {
+      background-color: #fff;
+      padding: 10px;
+    .index_news_title {
+        padding: 10px 0;
+        color: #000000;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .index_news_content {
+      .news_item {
+          display: flex;
+          padding: 10px 0;
+          border-bottom:1px solid #cccccc ;
+        .news_item_img {
+            flex: 1;
+          
+        }
+
+        .news_item_info {
+            flex: 2;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          .news_item_title {
+              color: #000000;
+              font-size: 15px;
+              font-weight: 600;
+          }
+
+          .news_item_desc {
+              font-size: 13px;
+              display: flex;
+              justify-content: space-between;
+            span {
+            }
+          }
         }
       }
     }
