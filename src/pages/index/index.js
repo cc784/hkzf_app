@@ -34,7 +34,7 @@ import indexCss from "./index.module.scss";
  return ( 
     <div className={indexCss.hk_index}>
         {/* 轮播图开始 */}
-        <div className='index_carousel'>
+        <div className={indexCss.index_carousel}>
         {this.state.carouselList.length &&<Carousel
           autoplay
           infinite
@@ -62,10 +62,10 @@ import indexCss from "./index.module.scss";
         </div>
         {/* 轮播图结束 */}
         {/* 2 首页导航 开始 */}
-        <div className='index_nav'>
-          {this.state.navs.map(v=><div className="nav_item"
+        <div className={indexCss.index_nav}>
+          {this.state.navs.map(v=><div className={indexCss.nav_item}
           key={v.id}>
-            <img src={v.imgSrc}></img>
+            <img src={v.imgSrc} alt=''></img>
             <p>{v.text}</p>
           </div>)}
         </div>
