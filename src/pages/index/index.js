@@ -14,6 +14,8 @@ import indexCss from "./index.module.scss";
      state={
          //轮播图数组
          carouselList: [],
+        //  租房小组数据
+        groups:[],
          //轮播图a标签高度
          imgHeight: 176,
          // 导航数组
@@ -25,15 +27,24 @@ import indexCss from "./index.module.scss";
          ]
      }
      async componentDidMount(){
-        //  轮播图数据请求
-        const res = await axios.get('/home/swiper')
-        console.log(res)
-        this.setState({carouselList:res.data.body})
+      this.getCarousel();
+      this.getGroups();
      }
+    //  获取轮播图数据
+    getCarousel =async () =>{
+      const res =await axios.get('/home/swiper')
+      this.setState({carouselList:res.data.body})
+    }
+    // 获取租房小组
+    getGroups =async () =>{
+      const res =await axios.get('/home/groups')
+      // console.log(res)
+      this.setState({groups:res.data.body});
+    }
  render() { 
  return ( 
     <div className={indexCss.hk_index}>
-        {/* 轮播图开始 */}
+        {/* 1 轮播图开始 */}
         <div className={indexCss.index_carousel}>
         {this.state.carouselList.length &&<Carousel
           autoplay
@@ -60,7 +71,7 @@ import indexCss from "./index.module.scss";
           ))}
         </Carousel>}
         </div>
-        {/* 轮播图结束 */}
+        {/* 1 轮播图结束 */}
         {/* 2 首页导航 开始 */}
         <div className={indexCss.index_nav}>
           {this.state.navs.map(v=><div className={indexCss.nav_item}
@@ -70,6 +81,24 @@ import indexCss from "./index.module.scss";
           </div>)}
         </div>
         {/* 2 首页导航 结束 */}
+        {/* 3 租房小组 开始*/}
+        <div className={indexCss.index_groups}>
+          <div className={indexCss.index_groups_title}>
+            <span>住房小组</span> <a href='/'>更多</a>
+          </div>
+          <div className={indexCss.index_groups_content}>
+          {this.state.groups.map(v=> <div className={indexCss.groups_item} key={v.id}>
+              <div className={indexCss.groups_item_info}>
+                <div className={indexCss.groups_item_title}>{v.title}</div>
+                <div className={indexCss.groups_item_desc}>{v.desc}</div>
+              </div>
+              <div className={indexCss.groups_item_img}>
+                <img src={baseURL + v.imgSrc} alt=''></img>
+              </div>
+            </div>)}
+          </div>
+        </div>
+        {/* 3 租房小组 结束*/}
     </div>
  );  
 } 
