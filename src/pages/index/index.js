@@ -8,6 +8,8 @@ import nav1 from '../../assets/images/nav-1.png';
 import nav2 from '../../assets/images/nav-2.png';
 import nav3 from '../../assets/images/nav-3.png';
 import nav4 from '../../assets/images/nav-4.png';
+// 引入局部样式
+import indexCss from "./index.module.scss";
  class index extends Component { 
      state={
          //轮播图数组
@@ -30,7 +32,7 @@ import nav4 from '../../assets/images/nav-4.png';
      }
  render() { 
  return ( 
-    <div>
+    <div className={indexCss.hk_index}>
         {/* 轮播图开始 */}
         <div className='index_carousel'>
         {this.state.carouselList.length &&<Carousel
@@ -62,7 +64,7 @@ import nav4 from '../../assets/images/nav-4.png';
         {/* 2 首页导航 开始 */}
         <div className='index_nav'>
           {this.state.navs.map(v=><div className="nav_item"
-          key='v.id'>
+          key={v.id}>
             <img src={v.imgSrc}></img>
             <p>{v.text}</p>
           </div>)}
