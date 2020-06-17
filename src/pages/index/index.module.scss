@@ -1,6 +1,6 @@
 .hk_index {
    
-    index_carousel {   
+    .index_carousel {   
         a {
           img {
   
@@ -8,10 +8,18 @@
         }
     }
   
-    index_nav {
-      nav_item {
+    .index_nav {
+        display: flex;
+        background-color: #ffffff;
+      .nav_item {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
         img {
-  
+            width: 60%;
+            margin: 5px 0;
         }
   
         p {
