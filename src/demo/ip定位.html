@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Hello, World</title> 
+<style type="text/css"> 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#allmap{height:100vh} 
+</style> 
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=webgl&ak=fKlyFdHlOmO8aS5gGta54nh4oobiQ8Ga">
+    //v3.0版本的引用方式：src="http://api.map.baidu.com/api?v=3.0&ak=您的密钥"
+    </script>
+</head> 
+  
+<body> 
+<div id="allmap"></div>
+<script type="text/javascript">
+var map = new BMap.Map("allmap");
+var point = new BMap.Point(116.331398,39.897445);
+map.centerAndZoom(point,12);
+
+function myFun(result){
+	var cityName = result.name;
+	map.setCenter(cityName);
+	alert("当前定位城市:"+cityName);
+}
+var myCity = new BMap.LocalCity();
+myCity.get(myFun); 
+</script> 
+</body> 
+</html>
