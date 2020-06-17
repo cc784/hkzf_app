@@ -59,6 +59,15 @@ import nav4 from '../../assets/images/nav-4.png';
         </Carousel>}
         </div>
         {/* 轮播图结束 */}
+        {/* 2 首页导航 开始 */}
+        <div className='index_nav'>
+          {this.state.navs.map(v=><div className="nav_item"
+          key='v.id'>
+            <img src={v.imgSrc}></img>
+            <p>{v.text}</p>
+          </div>)}
+        </div>
+        {/* 2 首页导航 结束 */}
     </div>
  );  
 } 
