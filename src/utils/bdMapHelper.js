@@ -25,3 +25,13 @@ export const getCurrentPosition = () => {
     })
   })
 }
+
+//获取当前城市
+export const getLocalCity = () => {
+  return new Promise((reslove, reject) => {
+    const myCity = new window.BMap.LocalCity();
+    myCity.get(function (result) {
+      reslove(result);
+    });
+  })
+}

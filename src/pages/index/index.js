@@ -10,6 +10,7 @@ import nav3 from '../../assets/images/nav-3.png';
 import nav4 from '../../assets/images/nav-4.png';
 // 引入局部样式
 import indexCss from "./index.module.scss";
+// 
  class index extends Component { 
      state={
          //轮播图数组
