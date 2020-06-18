@@ -33,6 +33,7 @@ import indexCss from "./index.module.scss";
       this.getCarousel();
       this.getGroups();
       this.getNews();
+      console.log(window.aabbcc); 
      }
     //  获取轮播图数据
     getCarousel =async () =>{
