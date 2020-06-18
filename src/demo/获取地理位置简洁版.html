@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hello, World</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #allmap {
+            height: 100vh
+        }
+    </style>
+    <script type="text/javascript"
+        src="http://api.map.baidu.com/api?v=2.0&ak=webgl&ak=fKlyFdHlOmO8aS5gGta54nh4oobiQ8Ga">
+        </script>
+    <!-- <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=webgl&ak=fKlyFdHlOmO8aS5gGta54nh4oobiQ8Ga"></script> -->
+</head>
+<!-- 删减优化 -->
+<body>
+    <div id="allmap"></div>
+    <script type="text/javascript">
+        // 百度地图API功能
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (r) {
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                // 创建地理编码实例, 并配置参数获取乡镇级数据
+                var myGeo = new BMap.Geocoder({ extensions_town: true });
+                // 根据坐标得到地址描述    
+                myGeo.getLocation(new BMap.Point(r.point.lng, r.point.lat), function (result) {
+                    if (result) {
+                        // 成功获取城市
+                        console.log(result)
+                    }
+                });
+                // 
+            }
+            else {
+                // 失败
+                alert('failed' + this.getStatus());
+            }
+        })
+    </script>
+
+</body>
+
+</html>
