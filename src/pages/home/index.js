@@ -36,7 +36,7 @@ class Home extends React.Component {
   
   // 负责显示组件的标签 视图
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     const {location,history} =this.props
     return (
       <div style={ { position: 'fixed', height: '100%', width: '100%', top: 0 }}>

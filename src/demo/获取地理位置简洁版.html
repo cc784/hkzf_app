@@ -31,14 +31,6 @@
             if (this.getStatus() == BMAP_STATUS_SUCCESS) {
                 // 创建地理编码实例, 并配置参数获取乡镇级数据
                 var myGeo = new BMap.Geocoder({ extensions_town: true });
-                // 根据坐标得到地址描述    
-                myGeo.getLocation(new BMap.Point(r.point.lng, r.point.lat), function (result) {
-                    if (result) {
-                        // 成功获取城市
-                        console.log(result)
-                    }
-                });
-                // 
             }
             else {
                 // 失败
