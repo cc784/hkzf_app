@@ -10,7 +10,8 @@ import nav3 from '../../assets/images/nav-3.png';
 import nav4 from '../../assets/images/nav-4.png';
 // 引入局部样式
 import indexCss from "./index.module.scss";
-// 
+// 引入城市输入组件
+import CityInput from "../../components/CityInput";
  class index extends Component { 
      state={
          //轮播图数组
@@ -57,6 +58,9 @@ import indexCss from "./index.module.scss";
     <div className={indexCss.hk_index}>
         {/* 1 轮播图开始 */}
         <div className={indexCss.index_carousel}>
+        <div className={indexCss.city_input}>
+            <CityInput  ></CityInput>
+          </div>
         {this.state.carouselList.length &&<Carousel
           autoplay
           infinite
