@@ -11,11 +11,12 @@ class index extends Component {
     this.props.initCity();
   }
   render() {
-    console.log(this.props)
+    // console.log(this.props)
+    const {history}=this.props
     return (
       <div className={indexCss.city_input}>
         <div className={indexCss.input_wrap}>
-          <div className={indexCss.city_label}>
+          <div className={indexCss.city_label} onClick={()=>history.push('/citySelect')}>
             <span>{this.props.cityName}</span>
             <i className={
               [
@@ -38,7 +39,9 @@ class index extends Component {
             <span>请输入小区或地址</span>
           </div>
         </div>
-        <div className={indexCss.map_point}>
+        <div className={indexCss.map_point}
+          onClick={()=>history.push('/mapFound')}
+        >
           <i className={
             [
               "iconfont",
