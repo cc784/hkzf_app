@@ -7,13 +7,16 @@ import Home from "./pages/home";
 import MapFound from "./pages/mapFound";
 // 城市选择
 import CitySelect from "./pages/citySelect";
-
-//
-
-import {getCurrentPosition} from './utils/bdMapHelper'
+// 连接器 
+import { connect } from "react-redux";
+// 异步aciton
+import { getLocalCityAction } from './store/actionCreator';
+// import {getCurrentPosition} from './utils/bdMapHelper'
 class App extends Component {
   componentDidMount(){
-    getCurrentPosition()
+    // getCurrentPosition()
+    // 获取城市地址
+    this.props.initCity();
   }
   render(){
     return (
@@ -34,4 +37,14 @@ class App extends Component {
   }
 }
 
-export default App;
+
+
+// 负责将 action 映射到组件的props中
+const mapDispathToprops = (dispath)=>{
+  return{
+    initCity(){
+      dispath(getLocalCityAction());
+    }
+  }
+}
+export default connect(null,mapDispathToprops)(App);
