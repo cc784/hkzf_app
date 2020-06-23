@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import indexCss from "./index.module.scss";
-console.log(indexCss["icon-seach"]);
+// 连接器 --这个连接器是怎么找到我写属性？
+import { connect } from "react-redux";
 class index extends Component {
   render() {
     return (
       <div className={indexCss.city_input}>
         <div className={indexCss.input_wrap}>
           <div className={indexCss.city_label}>
-            <span>北京</span>
+            <span>{this.props.cityName}</span>
             <i className={
               [
                 "iconfont",
@@ -43,4 +44,11 @@ class index extends Component {
     );
   }
 }
-export default index;
+// 负责将仓库中的数据映射到组件的props当中
+const mapStateToProps=(state)=>{
+  return{
+    cityName:state.mapReducer.city.cityName
+  }
+}
+
+export default connect(mapStateToProps)(index);
