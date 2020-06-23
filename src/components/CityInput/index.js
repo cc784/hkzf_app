@@ -4,11 +4,14 @@ import indexCss from "./index.module.scss";
 import { connect } from "react-redux";
 // 异步aciton
 import { getLocalCityAction } from '../../store/actionCreator';
+// 获取路由对象函数
+import {withRouter} from "react-router-dom"
 class index extends Component {
   componentDidMount(){
     this.props.initCity();
   }
   render() {
+    console.log(this.props)
     return (
       <div className={indexCss.city_input}>
         <div className={indexCss.input_wrap}>
@@ -64,4 +67,4 @@ const mapDispathToprops = (dispath)=>{
     }
   }
 }
-export default connect(mapStateToProps,mapDispathToprops)(index);
+export default withRouter(connect(mapStateToProps,mapDispathToprops)(index));

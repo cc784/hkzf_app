@@ -34,7 +34,7 @@ import CityInput from "../../components/CityInput";
       this.getCarousel();
       this.getGroups();
       this.getNews();
-      console.log(window.aabbcc); 
+      // console.log(window.aabbcc); 
      }
     //  获取轮播图数据
     getCarousel =async () =>{
@@ -54,6 +54,7 @@ import CityInput from "../../components/CityInput";
       this.setState({news:res.data.body});
     }
  render() { 
+
  return ( 
     <div className={indexCss.hk_index}>
         {/* 1 轮播图开始 */}
