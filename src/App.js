@@ -1,4 +1,4 @@
-import React ,{ Component, lazy, Suspense } from 'react';
+import React ,{ Component,  } from 'react';
 import { HashRouter as Router, Route, Redirect} from "react-router-dom";
 
 //  home 其实是一个 tabbar 
@@ -7,6 +7,8 @@ import Home from "./pages/home";
 import MapFound from "./pages/mapFound";
 // 城市选择
 import CitySelect from "./pages/citySelect";
+
+//
 
 import {getCurrentPosition} from './utils/bdMapHelper'
 class App extends Component {

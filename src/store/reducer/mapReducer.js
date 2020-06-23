@@ -7,5 +7,17 @@ const defaultState ={
 }
 
 export default (state = defaultState,action)=>{
+    console.log(action)
+    // 深拷贝
+    let newState =JSON.parse(JSON.stringify(state));
+    switch(action.type){
+        case "initCity":
+            newState.city=action.value;
+            return newState;
+            break;
+            
+        default:
+            break;    
+    }
     return state
 }

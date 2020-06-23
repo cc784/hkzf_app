@@ -1,5 +1,8 @@
 // 仓库
 import reducer from "./reducer";
-import { createStore } from 'redux';
-
-export default createStore(reducer);
+// applyMiddleware 中间建使用工具
+import { createStore ,applyMiddleware } from 'redux';
+// 
+import thunk from "redux-thunk";
+// export default createStore(reducer);
+export default createStore(reducer,applyMiddleware(thunk));
